@@ -2,3 +2,5 @@
 codes/*/target/
 */Cargo.lock
 codes/*/Cargo.lock
+mini-projects/*/target/
+mini-projects/*/Cargo.lock
