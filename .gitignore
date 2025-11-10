@@ -4,3 +4,4 @@ codes/*/target/
 codes/*/Cargo.lock
 mini-projects/*/target/
 mini-projects/*/Cargo.lock
+.history/
