@@ -2,7 +2,7 @@
 use std::collections::HashMap;
 
 fn main(){
-    let mut list = vec![9,7,4,2,5,5,1,8,3,6];
+    let mut list = vec![9,7,4,2,7,5,1,8,3,6];
     let len = list.len();
 
     // mean calculation
@@ -10,8 +10,8 @@ fn main(){
     for i in &list{
         mean += i;
     }
-    mean = mean / len;
-    println!("{}", mean);
+    let mean : f64 = mean as f64/ len as f64;
+    println!("Mean - {}", mean);
 
     // median calculation
     let median : usize;
@@ -21,10 +21,18 @@ fn main(){
     }else{
         median = (list[len / 2] + list[len / 2 + 1]) / 2;
     }
-    println!("{}", median);
+    println!("Median - {}", median);
 
     // mode calculation
-    for i in &list {
-        
+    let mut map : HashMap<usize,usize> = HashMap::new();
+    for i in list {
+        let x = map.get(&i).copied().unwrap_or(0)+1;
+        map.insert(i,x);
     }
+
+    let mut map_items : Vec<(_,_)> = map.iter().collect();
+    map_items.sort_by(|a,b| b.1.cmp(a.1));
+
+    let mode = &map_items[0].0;
+    println!("Mode - {}", mode);
 }
